@@ -6,8 +6,9 @@ import matplotlib.pyplot as plt
 import openai
 import requests
 
-openai_api_key = "sk-proj-BLldiuhVnIFSCjp7r3LcT3BlbkFJhp5jXm5uwhWOlVEkD2Lo"
 
+
+openai_api_key = "sk-proj-BLldiuhVnIFSCjp7r3LcT3BlbkFJhp5jXm5uwhWOlVEkD2Lo"
 
 # financial advice using OpenAI API
 def get_advice(user_input):

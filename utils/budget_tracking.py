@@ -1,7 +1,7 @@
-import streamlit as st
+import datetime
 import sqlite3
-from datetime import datetime
-import matplotlib.pyplot as plt
+from matplotlib import pyplot as plt
+import streamlit as st 
 
 def budget_tracking():
     st.write("Input your financial data below:")
@@ -16,7 +16,7 @@ def budget_tracking():
         submit_button = st.form_submit_button(label='Add Transaction')
 
         if submit_button:
-            user_id = 1  # Assuming user_id is 1 for demonstration purposes
+            user_id = 1  # Assuming user_id is 1 f
             c.execute("INSERT INTO transactions (user_id, type, amount, date) VALUES (?, ?, ?, ?)", (user_id, trans_type, amount, str(date)))
             conn.commit()
             st.success("Transaction added successfully")
@@ -24,11 +24,11 @@ def budget_tracking():
     conn.close()
 
 
-        # Connect to the SQLite database
+        #  SQLite database
     conn = sqlite3.connect('data/finance.db')
     c = conn.cursor()
 
-    # Query the database to fetch transaction data
+    #  fetch transaction data
     c.execute("SELECT date, SUM(amount) FROM transactions GROUP BY date")
     transaction_data = c.fetchall()
 
@@ -39,7 +39,7 @@ def budget_tracking():
     dates = [data[0] for data in transaction_data]
     total_amounts = [amount[1] for amount in transaction_data]
 
-    # Line chart for expenses and incomes over time
+    #  expenses and incomes over time
     st.write("### Budget Tracking - Expenses and Incomes Over Time")
     fig1, ax1 = plt.subplots()
     ax1.plot(dates, total_amounts, marker='o', linestyle='-', color='b')
@@ -63,6 +63,5 @@ def budget_tracking():
     #ax2.set_title('Proportion of Expenses vs Incomes')
     #st.pyplot(fig2)
 
-
-
-budget_tracking()
+if __name__=="__main__":
+    budget_tracking()

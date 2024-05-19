@@ -4,12 +4,9 @@ import sqlite3
 import streamlit as st
 
 # Function to display financial information
-def display_financial_info():
-    st.subheader("Financial Information")
-    st.write("Here are some key financial metrics:")
-    # Add your financial information here
 
-# Function to display financial news
+
+
 def display_financial_news():
     st.subheader("Financial News")
     st.write("Here are some recent financial news articles:")
@@ -34,3 +31,10 @@ def get_news():
         return articles
     except Exception as e:
         return []
+    
+
+def financial_news():
+    get_news()
+    display_financial_news()
+
+

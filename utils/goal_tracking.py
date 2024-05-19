@@ -3,7 +3,6 @@ import sqlite3
 import matplotlib.pyplot as plt
 
 def goal_setting():
-    # Your goal setting code here
     st.write("Set and track your financial goals:")
 
     conn = sqlite3.connect('data/finance.db')
@@ -15,7 +14,7 @@ def goal_setting():
         submit_button = st.form_submit_button(label='Set Goal')
 
         if submit_button:
-            user_id = 1  # Assuming user_id is 1 for demonstration purposes
+            user_id = 1  # Assuming user_id is 1 
             c.execute("INSERT INTO goals (user_id, goal, target_amount, saved_amount) VALUES (?, ?, ?, 0)", (user_id, goal, target_amount))
             conn.commit()
             st.success("Goal set successfully")
@@ -54,6 +53,5 @@ def goal_setting():
     ax2.axis('equal')
     ax2.set_title('Distribution of Target Amounts for Goals')
     st.pyplot(fig2)
-
 
 goal_setting()
