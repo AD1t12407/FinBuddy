@@ -1,83 +1,54 @@
 # Financial Planning
 
-Automated financial planning aims to simplify the process of financial planning and wealth management for individuals by using generative AI technology. This tool analyzes user’s financial data, identifies their financial goals and priorities, and recommends personalized strategies to achieve them. It provides features such as budget tracking, goal setting, investment portfolio management, and retirement planning, helping users make informed financial decisions and achieve long-term financial success.
+This tool analyzes user’s financial data, identifies their financial goals and priorities, and recommends personalized strategies to achieve them. It provides features such as budget tracking, goal setting, investment portfolio management, and retirement planning, helping users make informed financial decisions and achieve long-term financial success.
 
-## Features
+### Financial Dashboard with Streamlit
 
-1. **Budget Tracking**
+This application provides a comprehensive financial dashboard for tracking, managing, and planning your finances. It includes features for overview, budget tracking, goal setting, investment portfolio management, retirement planning, and a financial advice generator using OpenAI's API.
 
-   - Allows users to input and track their income and expenses.
-   - Provides insights into spending patterns and suggests budget adjustments.
+### Setup and Usage
 
-2. **Goal Setting**
+1. **Dependencies**: Make sure you have the following dependencies installed:
 
-   - Users can set financial goals (e.g., saving for a house, retirement).
-   - Tracks progress towards goals and provides recommendations to stay on track.
+   - Streamlit
+   - SQLite3
+   - Pandas
+   - Matplotlib
+   - OpenAI
+   - Requests
 
-3. **Investment Portfolio Management**
+2. **API Keys**: You need to set up API keys for OpenAI and NewsAPI. Replace `openai_api_key` and `news_api_key` variables in the code with your respective API keys.
 
-   - Enables users to input their investment portfolio data.
-   - Offers basic analytics and visualizations to understand portfolio performance and allocation.
+3. **Database**: Ensure you have a SQLite database named `finance.db` in the `data` directory. You can adjust the database path as per your setup.
 
-4. **Retirement Planning**
-   - Tools for estimating retirement savings needs.
-   - Visualizes progress towards retirement goals and suggests adjustments.
+4. **Running the App**: Execute the script and open the Streamlit app in your browser. You can run the script using the command `streamlit run filename.py`.
 
-## Tech Stack
+### Features
 
-- **Frontend**: Streamlit (for rapid development and deployment of the web interface)
-- **Backend**: Python (for developing machine learning algorithms and data processing)
-- **Database**: SQLite (for simplicity and quick setup)
-- **Machine Learning**: scikit-learn or simple statistical models
-- **Security**: Streamlit's built-in mechanisms and environment variables for basic security
-- **Visualization**: matplotlib and Streamlit's native visualization components
+1. **Overview**: Provides an overview of your financial status and goals, including income vs. expense breakdown, income and expenses over time, and progress towards savings goals.
 
-## Installation
+2. **Budget Tracking**: Allows input of financial transactions, tracks expenses and incomes over time, and provides visualization of budget tracking data.
 
-1. Clone the repository:
+3. **Goal Setting**: Enables setting and tracking financial goals with target amounts and visualization of goal distribution.
 
-   ```bash
-   git clone https://github.com/yourusername/financial-planning.git
-   cd financial-planning
-   ```
+4. **Investment Portfolio Management**: Manages and analyzes your investment portfolio, allowing addition of investments, visualization of distribution by type, and viewing existing investments.
 
-2. Set up a virtual environment and activate it:
+5. **Retirement Planning**: Helps in planning your retirement by setting goals, tracking progress towards retirement goals, and visualization of retirement plans.
 
-   ```bash
-   python -m venv venv
-   source venv/bin/activate  # On Windows, use `venv\Scripts\activate`
-   ```
+6. **Financial Advice Generator**: Utilizes OpenAI's API to generate financial advice based on user input.
 
-3. Install the required dependencies:
+### Additional Notes
 
-   ```bash
-   pip install -r requirements.txt
-   ```
+- The application assumes a user ID of 1 for demonstration purposes. You can adjust it as per your user management system.
+- Error handling is implemented for API requests and database operations. Ensure appropriate error handling strategy for your production environment.
+- Financial news fetching functionality uses NewsAPI. You may need to adjust the API request parameters or endpoint based on your requirements.
 
-4. Run the Streamlit app:
-   ```bash
-   streamlit run app.py
-   ```
+## (To be Implemented)
 
-## Usage
+The application currently lacks user login and registration functionality.
 
-1. **Login/Register**: Start by logging in or registering as a new user.
-2. **Input Financial Data**: Use the provided forms to input your income, expenses, and investment details.
-3. **Set Financial Goals**: Define your financial goals and track your progress.
-4. **Monitor Portfolio**: Manage and analyze your investment portfolio.
-5. **Plan for Retirement**: Use the retirement planning tools to estimate your retirement needs and track your savings progress.
+- **User Authentication**: Implementing login and registration functionality to allow users to create accounts, log in securely, and access personalized features and data.
 
-## Security and Privacy
+Machine learning integration are essential components to enhance the intelligence of the financial applicatio
 
-- User authentication is managed using Streamlit's built-in mechanisms.
-- Financial data is stored securely in an SQLite database.
-- Sensitive information such as passwords should be handled using environment variables and encryption.
-
-## Tasks
-
-1. **Design and develop machine learning algorithms** to analyze users' financial data and identify their financial goals.
-2. **Implement features for budget tracking, goal setting, investment portfolio management, and retirement planning.**
-3. **Integrate user-friendly interfaces** for users to input financial data, set goals, and monitor progress.
-4. **Ensure security and privacy** of user’s financial information through robust authentication and encryption mechanisms.
-
-# finance_app
+- **Machine Learning Integration**: Integrating machine learning models to provide intelligent insights and personalized recommendations for financial decision-making.
