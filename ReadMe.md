@@ -1,4 +1,4 @@
-# Automated Financial Planning
+# Financial Planning
 
 Automated financial planning aims to simplify the process of financial planning and wealth management for individuals by using generative AI technology. This tool analyzes user’s financial data, identifies their financial goals and priorities, and recommends personalized strategies to achieve them. It provides features such as budget tracking, goal setting, investment portfolio management, and retirement planning, helping users make informed financial decisions and achieve long-term financial success.
 
@@ -79,4 +79,5 @@ Automated financial planning aims to simplify the process of financial planning 
 2. **Implement features for budget tracking, goal setting, investment portfolio management, and retirement planning.**
 3. **Integrate user-friendly interfaces** for users to input financial data, set goals, and monitor progress.
 4. **Ensure security and privacy** of user’s financial information through robust authentication and encryption mechanisms.
+
 # finance_app
