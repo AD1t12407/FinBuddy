@@ -6,14 +6,13 @@ import matplotlib.pyplot as plt
 import openai
 import requests
 
-# Set your OpenAI API key
 openai_api_key = "sk-proj-BLldiuhVnIFSCjp7r3LcT3BlbkFJhp5jXm5uwhWOlVEkD2Lo"
 
 
-# Function to generate financial advice using OpenAI API
+# financial advice using OpenAI API
 def get_advice(user_input):
     try:
-        # Make a POST request to the OpenAI API to generate advice based on the prompt
+        # POST request to the OpenAI API to generate advice based on the prompt
         response = requests.post(
             "https://api.openai.com/v1/engines/text-davinci-003/completions",
             headers={
@@ -38,7 +37,7 @@ def dashboard():
     st.title("Dashboard")
     st.write("This is the dashboard. You can access various features related to financial tracking here.")
 
-    # Navigation for dashboard features
+    #  dashboard features
     dashboard_page = st.sidebar.radio("Dashboard Navigation", ["Overview", "Budget Tracking", "Goal Setting", "Investment Portfolio", "Retirement Planning"])
 
     if dashboard_page == "Overview":
@@ -61,10 +60,10 @@ def dashboard():
         st.subheader("Retirement Planning")
         retirement_planning()
 
-# Set up financial news API key
+#  financial news API key
 news_api_key = "9c364d44f202437fa167782d1d075057"
 
-# Function to get financial news
+#  financial news
 def get_news():
     try:
         today = date.today()
@@ -72,18 +71,18 @@ def get_news():
             f"https://newsapi.org/v2/everything?q=finance&from={today}&sortBy=publishedAt&apiKey={news_api_key}"
         )
         
-        # Check if the request was successful
+        #  request was successful
         if response.status_code == 200:
             data = response.json()
             articles = data.get('articles', [])
             return articles
         else:
-            # You can print the status code and error message here, or handle it as per your app's error handling strategy
+            # s error handling strategy
             print(f"Failed to fetch news: {response.status_code}")
             return []
     
     except Exception as e:
-        # Log the exception; You could use logging instead of print in production applications
+        # Log the exception
         print(f"An error occurred: {str(e)}")
         return []
 
@@ -94,37 +93,37 @@ def overview():
 
     st.write("Overview of your financial status and goals.")
 
-    # Connect to database
+    # connect to database
     conn = sqlite3.connect('data/finance.db')
     c = conn.cursor()
 
-    # Fetch user data (assuming user_id is 1 for demonstration purposes)
+    # fetch user data (assuming user_id is 1 for demonstration purposes)
     user_id = 1
 
-    # Fetch transaction data
+    # fetch transaction data
     c.execute("SELECT type, SUM(amount) FROM transactions WHERE user_id=? GROUP BY type", (user_id,))
     transaction_summary = c.fetchall()
 
-    # Fetch transactions for line chart
+    # fetch transactions for line chart
     c.execute("SELECT date, SUM(amount) FROM transactions WHERE user_id=? GROUP BY date", (user_id,))
     transaction_timeline = c.fetchall()
 
-    # Fetch savings goals
+    # fetch savings goals
     c.execute("SELECT goal, target_amount, saved_amount FROM goals WHERE user_id=?", (user_id,))
     savings_goals = c.fetchall()
 
     conn.close()
 
-    # Convert transaction summary to DataFrame
+    # convert transaction summary to DataFrame
     df_transaction_summary = pd.DataFrame(transaction_summary, columns=["Type", "Total Amount"])
     
-    # Convert transaction timeline to DataFrame
+    # convert transaction timeline to DataFrame
     df_transaction_timeline = pd.DataFrame(transaction_timeline, columns=["Date", "Total Amount"])
     
-    # Convert savings goals to DataFrame
+    # convert savings goals to DataFrame
     df_savings_goals = pd.DataFrame(savings_goals, columns=["Goal", "Target Amount", "Saved Amount"])
 
-    # Display transactions by category as a pie chart
+    #  transactions by category as a pie chart
     st.write("### Income vs Expense")
     fig1, ax1 = plt.subplots()
     income_expense_labels = df_transaction_summary["Type"].tolist()
@@ -150,7 +149,7 @@ def overview():
    
     
 
-    # displaying savings goals progress as a bar chart
+    # savings goals progress as a bar chart
     st.write("### Savings Goals Progress")
     fig3, ax3 = plt.subplots()
     ax3.barh(df_savings_goals["Goal"], df_savings_goals["Saved Amount"], color='green', label='Saved Amount')
@@ -185,7 +184,7 @@ def budget_tracking():
         submit_button = st.form_submit_button(label='Add Transaction')
 
         if submit_button:
-            user_id = 1  # Assuming user_id is 1 for demonstration purposes
+            user_id = 1  # Assuming user_id is 1 f
             c.execute("INSERT INTO transactions (user_id, type, amount, date) VALUES (?, ?, ?, ?)", (user_id, trans_type, amount, str(date)))
             conn.commit()
             st.success("Transaction added successfully")
@@ -193,11 +192,11 @@ def budget_tracking():
     conn.close()
 
 
-        # Connect to the SQLite database
+        #  SQLite database
     conn = sqlite3.connect('data/finance.db')
     c = conn.cursor()
 
-    # Query the database to fetch transaction data
+    #  fetch transaction data
     c.execute("SELECT date, SUM(amount) FROM transactions GROUP BY date")
     transaction_data = c.fetchall()
 
@@ -208,7 +207,7 @@ def budget_tracking():
     dates = [data[0] for data in transaction_data]
     total_amounts = [amount[1] for amount in transaction_data]
 
-    # Line chart for expenses and incomes over time
+    #  expenses and incomes over time
     st.write("### Budget Tracking - Expenses and Incomes Over Time")
     fig1, ax1 = plt.subplots()
     ax1.plot(dates, total_amounts, marker='o', linestyle='-', color='b')
@@ -245,7 +244,7 @@ def goal_setting():
         submit_button = st.form_submit_button(label='Set Goal')
 
         if submit_button:
-            user_id = 1  # Assuming user_id is 1 for demonstration purposes
+            user_id = 1  # Assuming user_id is 1 
             c.execute("INSERT INTO goals (user_id, goal, target_amount, saved_amount) VALUES (?, ?, ?, 0)", (user_id, goal, target_amount))
             conn.commit()
             st.success("Goal set successfully")
@@ -440,10 +439,10 @@ def main():
         submit_button = st.form_submit_button(label='Get Advice')
 
         if submit_button and user_input:
-            # Generate financial advice based on user input
+            #  financial advice based on user input
             advice = get_advice(user_input)
             
-            # Display the generated advice
+            #  generated advice
             st.subheader("Generated Advice:")
             st.write(advice)
 
