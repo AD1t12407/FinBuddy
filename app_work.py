@@ -4,35 +4,25 @@ from datetime import datetime
 import pandas as pd
 import matplotlib.pyplot as plt
 import openai
+from openai import OpenAI
 import requests
+from datetime import date
+from dotenv import load_dotenv
+
+from utils.api import callGPT3
+# get openai api key from environment variable
 
 
-
-openai_api_key = "sk-proj-BLldiuhVnIFSCjp7r3LcT3BlbkFJhp5jXm5uwhWOlVEkD2Lo"
 
 # financial advice using OpenAI API
 def get_advice(user_input):
-    try:
-        # POST request to the OpenAI API to generate advice based on the prompt
-        response = requests.post(
-            "https://api.openai.com/v1/engines/text-davinci-003/completions",
-            headers={
-                "Authorization": f"Bearer {openai_api_key}",
-                "Content-Type": "application/json"
-            },
-            json={
-                "prompt": user_input,
-                "max_tokens": 200
-            }
-        )
-        data = response.json()
-        if 'choices' in data and len(data['choices']) > 0:
-            advice = data['choices'][0]['text'].strip()
-            return advice
-        else:
-            return "No advice generated."
-    except Exception as e:
-        return f"An error occurred: {str(e)}"
+    sysPrompt = "The following is a conversation with a financial advisor. The advisor is helping the user with financial advice. foramat as json."
+    user_prompt = "User: " + user_input + "\nFinancial Advisor:"
+
+    response = callGPT3(systemPrompt=sysPrompt, userPrompt=user_prompt)
+
+    return response
+
 # Dashboard page
 def dashboard():
     st.title("Dashboard")
@@ -430,7 +420,7 @@ def retirement_planning():
     
 # Main function to run the app
 def main():
-
+    
     dashboard()
     st.title("Financial Advice Generator")
 
@@ -449,9 +439,12 @@ def main():
 
     
     
-    
+def test():
+    res = get_advice("Generate a financial report for the user. The user is a 25-year working in India with a salery of ")
+    print(res)
     
 
 
 if __name__ == "__main__":
     main()
+    #test()
