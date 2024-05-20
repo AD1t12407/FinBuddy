@@ -1,0 +1,57 @@
+{
+	"questions": [
+		{
+			"questionType": "TRUE-FALSE",
+			"question": "Is the sun larger than the moon?",
+			"answerType": "TRUE"
+		},
+		{
+			"questionType": "TRUE-FALSE",
+			"question": "Is the Earth flat?",
+			"answerType": "FALSE"
+		},
+		{
+			"questionType": "TRUE-FALSE",
+			"question": "Is water made up of two elements?",
+			"answerType": "TRUE"
+		},
+		{
+			"questionType": "TRUE-FALSE",
+			"question": "Is gravity stronger on the Moon than on Earth?",
+			"answerType": "FALSE"
+		},
+		{
+			"questionType": "TRUE-FALSE",
+			"question": "Is fire a type of matter?",
+			"answerType": "TRUE"
+		},
+		{
+			"questionType": "MCQ",
+			"question": "Which planet is known as the Red Planet?",
+			"answerType": "Mars",
+			"options": ["Venus", "Mars", "Jupiter", "Mercury"]
+		},
+		{
+			"questionType": "MCQ",
+			"question": "What is the closest star to Earth?",
+			"answerType": "Sun",
+			"options": ["Alpha Centauri", "Sirius", "Proxima Centauri", "Sun"]
+		},
+		{
+			"questionType": "MCQ",
+			"question": "Which gas do plants use for photosynthesis?",
+			"answerType": "Carbon dioxide",
+			"options": ["Oxygen", "Nitrogen", "Carbon dioxide", "Hydrogen"]
+		},
+		{
+			"questionType": "LONG ANSWER",
+			"question": "Explain the process of photosynthesis in plants.",
+			"answerType": "Detailed explanation of the process of photosynthesis in plants."
+		},
+		{
+			"questionType": "LONG ANSWER",
+			"question": "Discuss the theory of evolution by natural selection proposed by Charles Darwin.",
+			"answerType": "In-depth discussion of the theory of evolution by natural selection."
+		}
+	]
+}
