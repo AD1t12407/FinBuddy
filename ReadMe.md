@@ -2,7 +2,7 @@
 
 This tool analyzes user’s financial data, identifies their financial goals and priorities, and recommends personalized strategies to achieve them. It provides features such as budget tracking, goal setting, investment portfolio management, and retirement planning, helping users make informed financial decisions and achieve long-term financial success.
 
-##Motivation 
+## Motivation 
 Financial literacy and advisory services, is an area which is crucial yet often overlooked in traditional education systems. Finance is a necessity that impacts everyone's life, but unfortunately, it is not a part of the standard school curriculum unless one specifically pursues it as a field of study.
 As college students who have just started earning and managing our own money, we understand the importance of financial literacy firsthand. Whether it's dealing with pocket
 money, part-time job earnings, or just navigating the basics of personal finance, we often findourselves lost. We don't realize where we are spending, how to save, or what loans and
