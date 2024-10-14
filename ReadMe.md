@@ -43,6 +43,15 @@ This application provides a comprehensive financial dashboard for tracking, mana
 
 6. **Financial Advice Generator**: Utilizes OpenAI's API to generate financial advice based on user input.
 
+## SCREENSHOTS
+<img width="1421" alt="Screenshot 2024-10-14 at 8 13 00 PM" src="https://github.com/user-attachments/assets/18ec74c0-7a87-4fca-8622-8cdc053ee025">
+<img width="1439" alt="Screenshot 2024-10-14 at 8 25 37 PM" src="https://github.com/user-attachments/assets/5cc4cf40-6b01-4d85-bf56-d23199f05ac4">
+<img width="1433" alt="Screenshot 2024-10-14 at 8 26 21 PM" src="https://github.com/user-attachments/assets/af826cc2-5e0a-4b36-9833-0dfed7f5eb40">
+<img width="1440" alt="Screenshot 2024-10-14 at 8 26 38 PM" src="https://github.com/user-attachments/assets/885022d3-f6c8-4aa2-a12d-36453c16e7dc">
+<img width="1434" alt="Screenshot 2024-10-14 at 8 26 58 PM" src="https://github.com/user-attachments/assets/cc4a8381-b111-45a7-8d75-eddd236c8127">
+
+
+
 ### Additional Notes
 
 - The application assumes a user ID of 1 for demonstration purposes. You can adjust it as per your user management system.
